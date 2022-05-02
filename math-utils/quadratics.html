@@ -35,8 +35,37 @@
         <h1>Quadratics solver</h1>
         
         <p>
+            A quadratic is the following equation:
+            $$ax^2+bx-c$$
+            <br>
             The formula for solving a quadratic goes as follows:
             $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$
         </p>
+        
+        <p>
+            Please enter in the variables below:
+            <br>
+            a = <input type="number" id="a">
+            <br>
+            b = <input type="number" id="b"> 
+            <br>
+            c = <input type="number" id="c">
+        </p>
+        
+        <a href="#" onclick="Submit()">
+        
+        <div id="step-by-step">
+            <p id="stepone"/>
+            <P id="steptwo"/>
+        </div>
     </body>
+    <script>
+        function Submit() {
+            const a = $("#a").val();
+            const b = $("#b").val();
+            const c = $("#c").val();
+            
+            $("step-by-step").toggleClass("showtopnav")
+        }
+    </script>
 </html>
