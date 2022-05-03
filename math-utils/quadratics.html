@@ -81,7 +81,7 @@
     </body>
     <script>
         function Submit() {
-            const a = $("#a").val() < 0;
+            const a = $("#a").val();
             
             if (a == 0 || a == "0") {
                 $("#stepone").text("$$a \\ne 0$$\nA cannot equal 0")
@@ -91,7 +91,7 @@
             
             let aLT0 = false;
             
-            if (a < 0) {
+            if (parseInt(a < 0, 10)) {
                 aLT0 = true;
             }
             
