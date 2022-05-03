@@ -65,13 +65,17 @@
             const b = $("#b").val();
             const c = $("#c").val();
             
+            const v = Math.sqrt((b*b) - (4*a*c))
+            
             //$("step-by-step").toggleClass("showtopnav")
             const stepone = `The first step is:\n$$-${b} \\pm \\sqrt{${b}^2-4(${a})(${c})} \\over ${2*a}$$`
             $("#stepone").text(stepone)
             const steptwo = `The second step is:\n$$-${b} \\pm \\sqrt{${(b*b)- (4*a*c)}} \\over ${2*a}$$`
             $("#steptwo").text(steptwo)
-            const stepthree = `The third step is:\n$$-${b} \\pm ${Math.sqrt((b*b) - (4*a*c))} \\over ${2*a}$$`
+            const stepthree = `The third step is:\n$$-${b} \\pm ${v} \\over ${2*a}$$`
             $("#stepthree").text(stepthree)
+            const stepfour = `Then the final step is to simplify the equation and you get:\n$$x = ${(-b + v)/(2*a)}, ${(-b - v)/(2*a)}`
+            $("#stepfour").text(stepfour)
             MathJax.typeset()
         }
     </script>
