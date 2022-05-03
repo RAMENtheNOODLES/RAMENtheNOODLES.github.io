@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">  
+        <link rel="stylesheet" href="/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://kit.fontawesome.com/8e00593c4c.js" crossorigin="anonymous"></script>
+        <script> 
+                const monthnum = new Date().getUTCMonth();
+                $(function(){
+                  $("#includedContent").load("/navbar.html"); 
+
+                    if (!(monthnum == 11)) {
+                        $("#eventmessage").css({
+                        "visibility":"collapse",
+                        "width":"0px",
+                        "height":"0px"
+                    })
+                } 
+                var coll = document.getElementsByClassName("collapsible");
+                var i;
+
+                for (i = 0; i < coll.length; i++) {
+                    coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                      content.style.display = "none";
+                    } else {
+                      content.style.display = "block";
+                    }
+                    });
+                }
+                });
+        </script>
+        <script src="mathjax-config.js" defer></script>
+        <script type="text/javascript" id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+        </script>
+        <title>RAMENtheNOODLES Website</title>
+    </head>
+    <body style="text-align: center;">
+        <div id="includedContent" class="topnav"></div>
+        
+        <br>
+        
+        <h1>Pythagorean Solver</h1>
+        
+        <p>
+            The Pythagorean theorem is the following equation:
+            $$a^2 + b^2 = c^2$$
+        </p>
+        
+        <p>
+            Please enter in the variables below:
+            <br>
+            <br>
+            $a^2 = $<input type="number" id="a">
+            <br>
+            $b^2 = $<input type="number" id="b">
+            <br>
+            $c^2 = $<input type="number" id="c">
+        </p>
+        
+        <a href="#" onclick="Submit()">Submit</a>
+    </body>
+    <script>
+        function Submit() {
+            
+        }
+    </script>
+</html>
