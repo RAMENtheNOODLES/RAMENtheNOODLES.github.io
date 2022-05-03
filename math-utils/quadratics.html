@@ -9,18 +9,32 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://kit.fontawesome.com/8e00593c4c.js" crossorigin="anonymous"></script>
         <script> 
-            const monthnum = new Date().getUTCMonth();
-            $(function(){
-              $("#includedContent").load("/navbar.html"); 
+                const monthnum = new Date().getUTCMonth();
+                $(function(){
+                  $("#includedContent").load("/navbar.html"); 
 
-              if (!(monthnum == 11)) {
-                $("#eventmessage").css({
-                  "visibility":"collapse",
-                  "width":"0px",
-                  "height":"0px"
-                })
-              }
-            });
+                    if (!(monthnum == 11)) {
+                        $("#eventmessage").css({
+                        "visibility":"collapse",
+                        "width":"0px",
+                        "height":"0px"
+                    })
+                } 
+                var coll = document.getElementsByClassName("collapsible");
+                var i;
+
+                for (i = 0; i < coll.length; i++) {
+                    coll[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var content = this.nextElementSibling;
+                    if (content.style.display === "block") {
+                      content.style.display = "none";
+                    } else {
+                      content.style.display = "block";
+                    }
+                    });
+                }
+                });
         </script>
         <script src="mathjax-config.js" defer></script>
         <script type="text/javascript" id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
@@ -42,8 +56,14 @@
             $$x = {-b \pm \sqrt{b^2-4ac} \over 2a}$$
         </p>
         
+        <button type="button" class="collapsible">Open Collapsible</button>
+        <div class="content">
+            <p>Lorem ipsum...</p>
+        </div>
+        
         <p>
             Please enter in the variables below:
+            <br>
             <br>
             a = <input type="number" id="a">
             <br>
@@ -75,7 +95,7 @@
             const v = Math.sqrt((b*b) - (4*a*c))
             
             //$("step-by-step").toggleClass("showtopnav")
-            const stepone = `The first step is:\n$$-${b} \\pm \\sqrt{${b}^2-4(${a})(${c})} \\over ${2*a}$$`
+            const stepone = `First you want to fill in all of the variables into the quadratic formula:\n$$-${b} \\pm \\sqrt{${b}^2-4(${a})(${c})} \\over ${2*a}$$`
             $("#stepone").text(stepone)
             const steptwo = `The second step is:\n$$-${b} \\pm \\sqrt{${(b*b)- (4*a*c)}} \\over ${2*a}$$`
             $("#steptwo").text(steptwo)
