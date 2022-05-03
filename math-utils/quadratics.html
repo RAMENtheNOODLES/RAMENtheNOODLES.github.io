@@ -62,6 +62,12 @@
     <script>
         function Submit() {
             const a = $("#a").val();
+            
+            if (a == 0 || a == "0") {
+                $("#stepone").text("$$a \\ne 0$$\nA cannot equal 0")
+                return
+            }
+            
             const b = $("#b").val();
             const c = $("#c").val();
             
