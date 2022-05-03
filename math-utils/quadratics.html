@@ -57,6 +57,7 @@
         <p id="stepone"></p>
         <P id="steptwo"></p>
         <p id="stepthree"></p>
+        <p id="stepfour"></p>
     </body>
     <script>
         function Submit() {
@@ -65,11 +66,12 @@
             const c = $("#c").val();
             
             //$("step-by-step").toggleClass("showtopnav")
-            
-            const stepone = `The first step is:\n$$-${b} \\pm \\sqrt{${b*b}-4(${a})(${c})} \\over ${2*a}$$`
-            $("#stepone").text(stepone)
-            const steptwo = `The second step is:\n$$-${b} \\pm ${(b*b) - (Math.sqrt(4*a*c))} \\over ${2*a}$$`
+            const stepone = `The first step is:\n$$-${b} \\pm \\sqrt{${b}^2-4(${a})(${c})} \\over ${2*a}$$`
+            $("stepone").text(stepone)
+            const steptwo = `The second step is:\n$$-${b} \\pm \\sqrt{${b*b}-4(${a})(${c})} \\over ${2*a}$$`
             $("#steptwo").text(steptwo)
+            const stepthree = `The third step is:\n$$-${b} \\pm ${Math.sqrt((b*b) - (4*a*c))} \\over ${2*a}$$`
+            $("#stepthree").text(stepthree)
             MathJax.typeset()
         }
     </script>
