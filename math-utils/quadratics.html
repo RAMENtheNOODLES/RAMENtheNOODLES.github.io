@@ -89,13 +89,14 @@
                 return
             }
             
-            let aLT0 = false;
+            const b = $("#b").val();
             
-            if (parseInt(a, 10) < 0) {
-                aLT0 = true;
+            let bLT0 = false;
+            
+            if (parseInt(b, 10) < 0) {
+                bLT0 = true;
             }
             
-            const b = $("#b").val();
             const c = $("#c").val();
             
             const v = Math.sqrt((b*b) - (4*a*c))
@@ -107,7 +108,7 @@
                 "Then the final step is to simplify the equation and you get:\n"
             ];
             
-            if (!aLT0) {
+            if (!bLT0) {
                 // Step one
                 $("#stepone").text(steps[0] + `$$-${b} \\pm \\sqrt{${b}^2-4(${a})(${c})} \\over ${2*a}$$`)
                 // Step two
@@ -121,13 +122,13 @@
             }
             
             // Step one
-            $("#stepone").text(steps[0] + `$$${b} \\pm \\sqrt{${b}^2-4(${a})(${c})} \\over ${2*a}$$`)
+            $("#stepone").text(steps[0] + `$$${-b} \\pm \\sqrt{${b}^2-4(${a})(${c})} \\over ${2*a}$$`)
             // Step two
-            $("#steptwo").text(steps[1] + `$$${b} \\pm \\sqrt{${(b*b)- (4*a*c)}} \\over ${2*a}$$`)
+            $("#steptwo").text(steps[1] + `$$${-b} \\pm \\sqrt{${(b*b)- (4*a*c)}} \\over ${2*a}$$`)
             // Step three
-            $("#stepthree").text(steps[2] + `$$${b} \\pm ${v} \\over ${2*a}$$`)
+            $("#stepthree").text(steps[2] + `$$${-b} \\pm ${v} \\over ${2*a}$$`)
             // Step four
-            $("#stepfour").text(steps[3] + `$$x = ${(b + v)/(2*a)}, ${(b - v)/(2*a)}$$`)
+            $("#stepfour").text(steps[3] + `$$x = ${(-b + v)/(2*a)}, ${(-b - v)/(2*a)}$$`)
             MathJax.typeset()
             return;
         }
