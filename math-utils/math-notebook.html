@@ -50,10 +50,11 @@
             const dictKeys = Object.keys(math);
             
             if (str == "") {
+                $(".debug").text("Input is blank");
                 return " ";
             }
             
-            let formattedStr = str;
+            var formattedStr = str;
             
             dictKeys.foreach(key => {
                 formattedStr = formattedStr.replaceAll(key, math[key]);
