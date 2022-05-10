@@ -41,7 +41,7 @@
         function formatMath(string1) {
             const mathTerms = {
                 "sqrt": "\\sqrt",
-                "+-": "\\pm",
+                "pm": "\\pm",
                 "therefore": "\\therefore",
                 "because": "\\because",
                 "over": "\\over"
@@ -67,7 +67,7 @@
         
         $(document).ready(function(){
             $("#notebook").keyup(function(){
-                const f = formatMath("b therefore")//String($(this).val()));
+                const f = formatMath(String($(this).val()));
                 // Getting the current value of textarea
                 var currentText = "$" + f + "$";
 
