@@ -67,7 +67,7 @@
         
         $(document).ready(function(){
             $("#notebook").keyup(function(){
-                const f = formatMath(String($(this).val()));
+                const f = formatMath("b +- therefore")//String($(this).val()));
                 // Getting the current value of textarea
                 var currentText = "$" + f + "$";
 
