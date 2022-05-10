@@ -24,7 +24,16 @@
         <br>
         
         <h1>Math Notebook</h1>
+        
+        <br>
+        
+        <div class="debug"></div>
+        
+        <br>
+        
         <div class="output"></div>
+        
+        <br>
         
         <textarea id="notebook" rows="4" cols="50"></textarea>
     </body>
@@ -49,6 +58,8 @@
             dictKeys.foreach(key => {
                 formattedStr = formattedStr.replaceAll(key, math[key]);
             });
+            
+            $(".debug").text(`Dict keys: ${dictKeys}\nStr: ${str}\nFormatted String: ${formattedStr}` 
             
             return formattedStr;
         }
