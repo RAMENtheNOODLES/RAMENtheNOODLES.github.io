@@ -56,9 +56,11 @@
             
             var formattedStr = string1;
             
-            dictKeys.foreach(key => {
+            for (var i = 0; i < dictKeys.length; i++) {
+            	var key = dictKeys[i];
+                //$(".debug").text(`Key: ${key}`);
                 formattedStr = formattedStr.replaceAll(key, mathTerms[key]);
-            });
+            }
             
             $(".debug").text(`Dict keys: ${dictKeys}\nStr: ${string1}\nFormatted String: ${formattedStr}`)
             
