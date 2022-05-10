@@ -38,16 +38,16 @@
         <textarea id="notebook" rows="4" cols="50"></textarea>
     </body>
     <script>
-        const math = {
-            "sqrt": "\\sqrt",
-            "+-": "\\pm",
-            "therefore": "\\therefore",
-            "because": "\\because",
-            "over": "\\over"
-        }
-        
         function formatMath(string1) {
-            const dictKeys = Object.keys(math);
+            const mathTerms = {
+                "sqrt": "\\sqrt",
+                "+-": "\\pm",
+                "therefore": "\\therefore",
+                "because": "\\because",
+                "over": "\\over"
+            }
+            
+            const dictKeys = Object.keys(mathTerms);
             
             if (string1 == "") {
                 $(".debug").text("Input is blank\nStr: " + string1);
@@ -57,7 +57,7 @@
             var formattedStr = string1;
             
             dictKeys.foreach(key => {
-                formattedStr = formattedStr.replaceAll(key, math[key]);
+                formattedStr = formattedStr.replaceAll(key, mathTerms[key]);
             });
             
             $(".debug").text(`Dict keys: ${dictKeys}\nStr: ${string1}\nFormatted String: ${formattedStr}`)
@@ -67,7 +67,7 @@
         
         $(document).ready(function(){
             $("#notebook").keyup(function(){
-                const f = formatMath("b +- therefore")//String($(this).val()));
+                const f = formatMath("b therefore")//String($(this).val()));
                 // Getting the current value of textarea
                 var currentText = "$" + f + "$";
 
