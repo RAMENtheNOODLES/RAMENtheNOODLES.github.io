@@ -46,21 +46,21 @@
             "over": "\\over"
         }
         
-        function formatMath(str) {
+        function formatMath(string1) {
             const dictKeys = Object.keys(math);
             
-            if (str == "") {
-                $(".debug").text("Input is blank\nStr: " + str);
+            if (string1 == "") {
+                $(".debug").text("Input is blank\nStr: " + string1);
                 return " ";
             }
             
-            var formattedStr = str;
+            var formattedStr = string1;
             
             dictKeys.foreach(key => {
                 formattedStr = formattedStr.replaceAll(key, math[key]);
             });
             
-            $(".debug").text(`Dict keys: ${dictKeys}\nStr: ${str}\nFormatted String: ${formattedStr}`)
+            $(".debug").text(`Dict keys: ${dictKeys}\nStr: ${string1}\nFormatted String: ${formattedStr}`)
             
             return formattedStr;
         }
