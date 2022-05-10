@@ -67,8 +67,9 @@
         
         $(document).ready(function(){
             $("#notebook").keyup(function(){
+                const f = formatMath(String($(this).val()));
                 // Getting the current value of textarea
-                var currentText = "$" + formatMath(String($(this).val())) + "$";
+                var currentText = "$" + f + "$";
 
                 // Setting the Div content
                 $(".output").text(currentText + "$");
