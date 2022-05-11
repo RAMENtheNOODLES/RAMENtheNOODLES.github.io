@@ -38,7 +38,11 @@
         <textarea id="notebook" rows="4" cols="50"></textarea>
     </body>
     <script>
-        function formatMath(string1) {
+        function getParams() {
+            const params = new URLSearchParams(window.location.search);
+            return params;
+        }
+        function formatMath(string1, debug=false) {
             const mathTerms = {
                 "sqrt": "\\sqrt",
                 "+-": "\\pm",
@@ -50,7 +54,7 @@
             const dictKeys = Object.keys(mathTerms);
             
             if (string1 == "") {
-                $(".debug").text("Input is blank\nStr: " + string1);
+                if (debug) { $(".debug").text("Input is blank\nStr: " + string1) }
                 return " ";
             }
             
@@ -58,18 +62,24 @@
             
             for (var i = 0; i < dictKeys.length; i++) {
             	var key = dictKeys[i];
-                //$(".debug").text(`Key: ${key}`);
+                if (debug) { $(".debug").text(`Key: ${key}`) }
                 formattedStr = formattedStr.replaceAll(key, mathTerms[key]);
             }
             
-            $(".debug").text(`Dict keys: ${dictKeys}\nStr: ${string1}\nFormatted String: ${formattedStr}`)
+            if (debug) { $(".debug").text(`Dict keys: ${dictKeys}\nStr: ${string1}\nFormatted String: ${formattedStr}`) }
             
             return formattedStr;
         }
         
         $(document).ready(function(){
+            const params = getParams();
+            
+            let debug = false;
+            
+            if (params.has("debug")) { debug = true }
+            
             $("#notebook").keyup(function(){
-                const f = formatMath(String($(this).val()));
+                const f = formatMath(String($(this).val()), debug);
                 // Getting the current value of textarea
                 var currentText = "$" + f + "$";
 
