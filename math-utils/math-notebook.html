@@ -44,11 +44,13 @@
         }
         function formatMath(string1, debug=false) {
             const mathTerms = {
-                "sqrt": "\\sqrt",
-                "+-": "\\pm",
-                "therefore": "\\therefore",
-                "because": "\\because",
-                "over": "\\over"
+                "@sqrt": "\\sqrt",
+                "@+-": "\\pm",
+                "@therefore": "\\therefore",
+                "@because": "\\because",
+                "@over": "\\over",
+                "@pi": "\\pi",
+                "@ne": "\\ne
             }
             
             const dictKeys = Object.keys(mathTerms);
