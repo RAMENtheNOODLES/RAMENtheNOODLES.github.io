@@ -42,16 +42,16 @@
         
         <a href="#" onclick="Submit()">Submit</a>
         
-        <div id="mode"></div>
-        <div id="median"></div>
-        <div id="mean"></div>
+        <p id="mode"></p>
+        <p id="median"></p>
+        <p id="mean"></p>
     </body>
     <script>
         function Submit() {
             const data = $("#data").val().split(", ");
             
             const mode = getMode(data);
-            $("#mode").val(`Mode = ${mode}`)
+            $("#mode").text(`Mode = ${mode}`)
             return;
         }
         
