@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="/style.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://kit.fontawesome.com/8e00593c4c.js" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
         <script> 
                 const monthnum = new Date().getUTCMonth();
                 $(function(){
@@ -34,17 +35,49 @@
         <h1>Statistics Solver</h1>
         
         <p>
-            Please enter in the data below:
+            Please enter in the data below, seperated by a comma then a space:
             <br>
             <input type="number" id="data">
         </p>
         
         <a href="#" onclick="Submit()">Submit</a>
+        
+        <div id="mode"></div>
+        <div id="median"></div>
+        <div id="mean"></div>
     </body>
     <script>
         function Submit() {
-            const data = $("#data").val();
+            const data = $("#data").val().split(", ");
+            
+            const mode = getMode(data);
+            $("#mode").val(`Mode = ${mode}`)
             return;
+        }
+        
+        function getMode(arr) {
+            return getMostFrequentItem(arr);
+        }
+        
+        function getMostFrequentItem(arr, returnCount = false) {
+            var mf = 1;
+            var m = 0;
+            var item;
+            
+            for (var i = 0; i < arr.length; i++) {
+                for (var j = i; j < arr.length; j++) {
+                    if (arr[i] == arr[j])
+                        m++;
+                    if (mf < m) {
+                        mf = m;
+                        item = arr[i];
+                    }
+                }
+                
+                m = 0;
+            }
+            
+            return (returnCount) ? (mf, item) : item;
         }
     </script>
 </html>
